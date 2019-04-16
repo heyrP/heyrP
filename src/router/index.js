@@ -7,14 +7,6 @@ import Header from '@/components/Header'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'Index',
-      component: Index
-    }
-  ]
-
   // routes: [
   //   {
   //     path: '/',
@@ -22,4 +14,11 @@ export default new Router({
   //     component: HelloWorld
   //   }
   // ]
+  routes: [
+    {
+      path: '/',
+      name: 'Index',
+      component: Index
+    }
+  ]
 })
