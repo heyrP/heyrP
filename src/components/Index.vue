@@ -40,7 +40,6 @@ export default {
 	},
 	methods: {
 		changeContent: function(show){
-			console.log("show: ", show)
 			this.show = show
 		}
 	}
