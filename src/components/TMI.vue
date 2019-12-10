@@ -8,12 +8,7 @@
 export default {
 	name: 'TMI',
 	props: {
-		show: {
-			type: String,
-			default() {
-				return 'info'
-			}
-		}
+		show: String
 	},
 	data() {
 		return {

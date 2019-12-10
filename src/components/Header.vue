@@ -12,7 +12,7 @@
 				<a class="navbar-brand" href="#">heyrP</a>
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<head-list v-on:changeContent="changeContent"/>
+				<head-list :show="show" v-on:changeContent="changeContent"/>
 			</div>
 		</div>
 	</nav>
@@ -22,39 +22,52 @@
 <script>
 var headList = {
 	template: `<ul class="nav navbar-nav navbar-right">
-					<li v-for="(item, index) in navList.items" :class="{active: item.isActive}">
+					<li v-for="(item, index) in navList" :class="{active: item.isActive}">
 						<a href="#" @click="changeView(index)">{{item.value}}</a>
 					</li>
 				</ul>`,
+	props: {
+		show: String
+	},
 	data: function(){
 		return {
 			navList: navList
 		}
 	},
+	watch: {
+		show: function(){
+			for(var i=0; i<this.navList.length; i++){
+				if(this.show == this.navList[i].key){
+					this.navList[i].isActive = true
+				}else{
+					this.navList[i].isActive = false
+				}
+			}
+		}
+	},
 	methods: {
 		changeView: function(index){
-			for(var i=0; i<this.navList.items.length; i++){
-				this.navList.items[i].isActive = false;
-			}
-			this.navList.items[index].isActive = true;
-			this.$emit("changeContent", this.navList.items[index].key);
-			// $("#content>.show").removeClass("show").addClass("hidden");
-			// $("#content>div").eq(index).removeClass("hidden").addClass("show");
+			// for(var i=0; i<this.navList.length; i++){
+			// 	this.navList[i].isActive = false;
+			// }
+			// this.navList[index].isActive = true;
+			this.$emit("changeContent", this.navList[index].key);
 		}
 	}
 }
 
-var navList = {
-	items: [
-		{key: 'info',	value: 'Information',	isActive: true},
-		{key: 'intro',	value: 'Introduction',	isActive: false},
-		{key: 'port',	value: 'Portfolio',		isActive: false},
-		{key: 'tmi',	value: 'TMI',			isActive: false}
-	]
-}
+var navList = [
+	{key: 'info',	value: 'Information',	isActive: false},
+	// {key: 'intro',	value: 'Introduction',	isActive: false},
+	{key: 'port',	value: 'Portfolio',		isActive: false},
+	{key: 'tmi',	value: 'TMI',			isActive: false}
+]
 
 export default {
 	name: 'Header',
+	props: {
+		show: String
+	},
 	components: {
 		headList: headList
 	},

@@ -1,8 +1,8 @@
 <template>
 <div id="info" :class="{show: isShow, hidden: !isShow}">
-	<div id="basic-info" class="panel panel-default">
+	<div id="profile" class="panel panel-default">
 		<div class="panel-heading">
-			<h3>Information</h3>
+			<h3>Profile</h3>
 		</div>
 		<div class="panel-body">
 			<div id="my-photo">
@@ -11,7 +11,7 @@
 				</span>
 			</div>
 			<div id="my-info">
-				<div v-for="item in infoList">
+				<div v-for="item in profileList">
 					<label class="control-label">{{item.key}}</label>
 					<span>
 						<p class="form-control-static">{{item.value}}</p>
@@ -20,12 +20,12 @@
 			</div>
 		</div>
 	</div>
-	<div id="exp" class="panel panel-default">
+	<div id="history" class="panel panel-default">
 		<div class="panel-heading">
-			<h3>Experience</h3>
+			<h3>History</h3>
 		</div>
 		<div class="panel-body">
-			<div v-for="item in expList">
+			<div v-for="item in historyList">
 				<label>{{item.date}}</label>
 				<span>
 					<p v-for="sub in item.sub">{{sub}}</p>
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-var infoList = [
+var profileList = [
 	{key: 'Name',		value: '박혜림'},
 	{key: 'Birth',		value: '1993.12.14'},
 	{key: 'E-Mail',		value: 'gotothe1214@gmail.com'},
@@ -45,29 +45,44 @@ var infoList = [
 	{key: 'Degree',		value: '안양대학교 정보통신공학과 학사'}
 ]
 
-var expList = [
+var historyList = [
 	{date: '2009.03 - 2010.03',	sub: ['진선여자고등학교 입학']},
 	{date: '2010.03 - 2012.02',	sub: ['백영고등학교 전입', '백영고등학교 졸업']},
 	{date: '2012.03 - 2017.02',	sub: ['안양대학교 정보통신공학과']},
 	{date: '2017.03 - ',	sub: ['유니메이션코리아 재직']},
+	{date: '2009.03 - 2010.03',	sub: ['진선여자고등학교 입학']},
+	{date: '2010.03 - 2012.02',	sub: ['백영고등학교 전입', '백영고등학교 졸업']},
+	{date: '2012.03 - 2017.02',	sub: ['안양대학교 정보통신공학과']},
+	{date: '2017.03 - ',	sub: ['유니메이션코리아 재직']},
+	{date: '2009.03 - 2010.03',	sub: ['진선여자고등학교 입학']},
+	{date: '2010.03 - 2012.02',	sub: ['백영고등학교 전입', '백영고등학교 졸업']},
+	{date: '2012.03 - 2017.02',	sub: ['안양대학교 정보통신공학과']},
+	{date: '2017.03 - ',	sub: ['유니메이션코리아 재직']},
+	{date: '2009.03 - 2010.03',	sub: ['진선여자고등학교 입학']},
+	{date: '2010.03 - 2012.02',	sub: ['백영고등학교 전입', '백영고등학교 졸업']},
+	{date: '2012.03 - 2017.02',	sub: ['안양대학교 정보통신공학과']},
+	{date: '2017.03 - ',	sub: ['유니메이션코리아 재직']},
+	{date: '2009.03 - 2010.03',	sub: ['진선여자고등학교 입학']},
+	{date: '2010.03 - 2012.02',	sub: ['백영고등학교 전입', '백영고등학교 졸업']},
+	{date: '2012.03 - 2017.02',	sub: ['안양대학교 정보통신공학과']},
+	{date: '2017.03 - ',	sub: ['유니메이션코리아 재직']},
+	{date: '2009.03 - 2010.03',	sub: ['진선여자고등학교 입학']},
+	{date: '2010.03 - 2012.02',	sub: ['백영고등학교 전입', '백영고등학교 졸업']},
+	{date: '2012.03 - 2017.02',	sub: ['안양대학교 정보통신공학과']},
+	{date: '2017.03 - ',	sub: ['유니메이션코리아 재직']}
 ]
 
 export default {
 	name: 'Information',
 	props: {
-		show: {
-			type: String,
-			default() {
-				return 'info'
-			}
-		}
+		show: String
 	},
 	data() {
 		return {
 			id: 'info',
-			isShow: true,
-			infoList: infoList,
-			expList: expList
+			isShow: false,
+			profileList: profileList,
+			historyList: historyList
 		}
 	},
 	watch: {
@@ -90,57 +105,57 @@ export default {
 </script>
 
 <style>
-#info #basic-info .panel-body > div {
+#info #profile .panel-body > div {
 	display: inline-block;
 	margin: 10px;
 }
-#info #basic-info .panel-body #my-photo {
+#info #profile .panel-body #my-photo {
 	width: 130px;
 }
-#info #basic-info .panel-body #my-info {
+#info #profile .panel-body #my-info {
 	vertical-align: top;
 }
-#info #basic-info .panel-body #my-info div label {
+#info #profile .panel-body #my-info div label {
 	width: 70px;
 }
-#info #basic-info .panel-body #my-info div span {
+#info #profile .panel-body #my-info div span {
 	display: inline-block;
 }
 
-#info #exp .panel-body > div {
+#info #history .panel-body > div {
 	margin: 10px;
 }
-#info #exp .panel-body div label {
+#info #history .panel-body div label {
 	width: 160px;
 }
-#info #exp .panel-body div span {
+#info #history .panel-body div span {
 	display: inline-block;
 	vertical-align: top;
 }
 
 @media (max-width: 480px) {
-	#info #basic-info .panel-body #my-photo {
+	#info #profile .panel-body #my-photo {
 		width: 100%;
 	}
-	#info #basic-info .panel-body #my-info {
+	#info #profile .panel-body #my-info {
 		width: 100%;
 	}
-	#info #basic-info .panel-body #my-info div label {
+	#info #profile .panel-body #my-info div label {
 		width: 100%;
 		margin-bottom: 0;
 	}
-	#info #basic-info .panel-body #my-info div span {
+	#info #profile .panel-body #my-info div span {
 		margin-left: 20px;
 	}
-	#info #basic-info .panel-body #my-info div span .form-control-static {
+	#info #profile .panel-body #my-info div span .form-control-static {
 		padding-top: 0;
 	}
 
-	#info #exp .panel-body div label {
+	#info #history .panel-body div label {
 		width: 100%;
 		margin-bottom: 0;
 	}
-	#info #exp .panel-body div span {
+	#info #history .panel-body div span {
 		margin-left: 20px;
 	}
 }

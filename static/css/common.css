@@ -1,0 +1,19 @@
+html, body, #app {
+	width: 100%;
+	height: 100%;
+}
+p {
+	margin: 0;
+}
+
+.panel-heading {
+	background-image: none;
+	backgroun d-color: unset;
+}
+.panel-heading h3 {
+	margin: auto;
+}
+.thumbnail {
+	display: inline-block;
+	margin-bottom: 0;
+}

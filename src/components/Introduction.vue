@@ -1,6 +1,6 @@
 <template>
-<div id="intro" :class="{show: isShow, hidden: !isShow}">
-	intro
+<div id="intro-comp">
+	<h1 class="title">heyrP's Page</h1>
 </div>
 </template>
 
@@ -8,32 +8,28 @@
 export default {
 	name: 'Introduction',
 	props: {
-		show: {
-			type: String,
-			default() {
-				return 'info'
-			}
-		}
 	},
 	data() {
 		return {
-			id: 'intro',
-			isShow: false
 		}
 	},
 	watch: {
-		show: function(){
-			if(this.id == this.show){
-				this.isShow = true
-			}else{
-				this.isShow = false
-			}
-		}
 	},
 	methods: {
+	},
+	mounted() {
 	}
 }
 </script>
 
 <style>
+#intro-comp {
+	wi dth: 100%;
+	hei ght: 100%;
+	background-color: #ddd;
+}
+.title {
+	position: relative;
+	margin: 0;
+}
 </style>

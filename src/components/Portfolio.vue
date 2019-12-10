@@ -8,12 +8,7 @@
 export default {
 	name: 'Portfolio',
 	props: {
-		show: {
-			type: String,
-			default() {
-				return 'info'
-			}
-		}
+		show: String
 	},
 	data() {
 		return {

@@ -11,6 +11,9 @@ export default {
 }
 </script>
 
+<!-- <style>
+@import './assets/css/common.css'
+</style> -->
 <style>
 /*#app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -20,19 +23,4 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }*/
-p {
-  margin: 0;
-}
-.panel-heading {
-  background-image: none;
-  backgroun d-color: unset;
-}
-.panel-heading h3 {
-  margin: auto;
-
-}
-.thumbnail {
-  display: inline-block;
-  margin-bottom: 0;
-}
 </style>
